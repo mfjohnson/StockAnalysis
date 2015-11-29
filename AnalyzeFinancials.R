@@ -1,0 +1,6 @@
+require(quantmod)
+require(TTR)
+alphaRetirement <- c("XOM","JNJ","T","FSP","KO","OHI","PG","O","GM","CVX","F","MSFT","ED","MO","MAIN","PETS","BGCP","OVBC","HCP","ORI","STWD","MAT","NLY")
+tickets <- new.env()
+a <- getFinancials("XOM")
+View(a$IS$Q)

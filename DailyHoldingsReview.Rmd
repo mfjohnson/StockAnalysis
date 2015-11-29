@@ -1,0 +1,68 @@
+---
+title: "QuantModTest"
+author: "Mark Johnson"
+date: "November 3, 2015"
+output: pdf_document
+---
+
+```{r, error=TRUE, warning=FALSE, echo=FALSE}
+require(quantmod)
+require(TTR)
+
+
+symbolList <- c("HDP","CRC","FAST","HCP","KO","NGG","OXY","WFC","XOM","VZ","QCOM")
+qualityGrowers <- c("CMP","PCLN","PII","BNS","BX","VTR","AGN","GILD","ILMN","MMP","SWN")
+cramerBuyList <- c("AGN","BAC","BIIB","COST","CSCO","ETP","GOOGL","JACK","KHC","LLY","LMT","MDLZ","PNRA","PYPL","SBUX","TGT","TMO","UNH","WBA","WFC","WWAV")
+dividendSelectPortfolio <- c("MO", "AEP", "APU", "CVX", "KO", "CMP", "DUK", "EMR", "EPD", "FAST", "GE", "GIS", "JNJ", "MMP", "NGG", "PAYX", "PM", "PG", "O", "SO", "SEP", "KHC", "UPS", "VTR", "VZ", "WFC", "HCN")
+watchBuyList <- c("EPD","MMP","SWN","AGN")
+
+bigList <- c("MO", "AEP", "APU", "CVX", "KO", "CMP", "DUK", "EMR", "EPD", "FAST", "GE", "GIS", "JNJ", "MMP", "NGG", "PAYX", "PM", "PG", "O", "SO", "SEP", "KHC", "UPS", "VTR", "VZ", "WFC", "HCN","AGN","BAC","BIIB","COST","CSCO","ETP","GOOGL","JACK","KHC","LLY","LMT","MDLZ","PNRA","PYPL","SBUX","TGT","TMO","UNH","WBA","WFC","WWAV","AGN","BAC","BIIB","COST","CSCO","ETP","GOOGL","JACK","KHC","LLY","LMT","MDLZ","PNRA","PYPL","SBUX","TGT","TMO","UNH","WBA","WFC","WWAV","CMP","PCLN","PII","BNS","BX","VTR","AGN","GILD","ILMN","MMP","SWN")
+
+alphaRetirement <- c("XOM","JNJ","T","FSP","KO","OHI","PG","O","GM","CVX","F","MSFT","ED","MO","MAIN","PETS","BGCP","OVBC","HCP","ORI","STWD","MAT","NLY")
+tickers <- new.env()
+getSymbols(Symbols = symbolList, env=tickers)
+
+
+chartStocks <- function(x) {
+  
+  
+
+  chartSeries(x,name = names(x), 
+              subset='last 6 months', 
+              TA='addRSI();addAroonOsc();addSAR();addCMF()')
+#  }
+}
+
+evaluateSAR <- function(x) {
+  x$sar <- SAR(x[, c(2,4)])
+  x$sarDif <- x[,c(4)] - x$SAR
+  sarCurrent <- x[nrow(x), c("sarDif")]
+  currentScore <- x[nrow(x), ]
+  result = "NA"
+  if (currentScore$sarDif > 0) 
+    result = "Buy"
+  else
+    result = "Sell"
+  
+  return(result)
+}
+
+sarBuyTickets <= function(x) {
+  
+}
+
+```
+# Evaluate SAR holdings
+```{r,  error=TRUE, warning=FALSE, echo=FALSE}
+#sarBuyTickets = sapply(tickers, sarStrategy)
+```
+
+
+
+# Stock Holdings Analysis
+```{r,  error=TRUE, warning=FALSE, echo=FALSE}
+
+sapply(tickers, chartStocks)
+
+
+```
