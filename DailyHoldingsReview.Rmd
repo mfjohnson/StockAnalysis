@@ -10,17 +10,10 @@ require(quantmod)
 require(TTR)
 
 
-symbolList <- c("HDP","CRC","FAST","HCP","KO","NGG","OXY","WFC","XOM","VZ","QCOM")
-qualityGrowers <- c("CMP","PCLN","PII","BNS","BX","VTR","AGN","GILD","ILMN","MMP","SWN")
-cramerBuyList <- c("AGN","BAC","BIIB","COST","CSCO","ETP","GOOGL","JACK","KHC","LLY","LMT","MDLZ","PNRA","PYPL","SBUX","TGT","TMO","UNH","WBA","WFC","WWAV")
-dividendSelectPortfolio <- c("MO", "AEP", "APU", "CVX", "KO", "CMP", "DUK", "EMR", "EPD", "FAST", "GE", "GIS", "JNJ", "MMP", "NGG", "PAYX", "PM", "PG", "O", "SO", "SEP", "KHC", "UPS", "VTR", "VZ", "WFC", "HCN")
-watchBuyList <- c("EPD","MMP","SWN","AGN")
-
-bigList <- c("MO", "AEP", "APU", "CVX", "KO", "CMP", "DUK", "EMR", "EPD", "FAST", "GE", "GIS", "JNJ", "MMP", "NGG", "PAYX", "PM", "PG", "O", "SO", "SEP", "KHC", "UPS", "VTR", "VZ", "WFC", "HCN","AGN","BAC","BIIB","COST","CSCO","ETP","GOOGL","JACK","KHC","LLY","LMT","MDLZ","PNRA","PYPL","SBUX","TGT","TMO","UNH","WBA","WFC","WWAV","AGN","BAC","BIIB","COST","CSCO","ETP","GOOGL","JACK","KHC","LLY","LMT","MDLZ","PNRA","PYPL","SBUX","TGT","TMO","UNH","WBA","WFC","WWAV","CMP","PCLN","PII","BNS","BX","VTR","AGN","GILD","ILMN","MMP","SWN")
-
-alphaRetirement <- c("XOM","JNJ","T","FSP","KO","OHI","PG","O","GM","CVX","F","MSFT","ED","MO","MAIN","PETS","BGCP","OVBC","HCP","ORI","STWD","MAT","NLY")
+currentHoldings <- c("ESRX","HDP","AGN","AMGN","FAST","HCP","QCP","NGG","WFC","XOM","VZ","QCOM","GSK","NVO","MCK","VTR","AAPL","TJX","KHC","CTL","EXPE")
+dividendSelect <- c("MO","AEP","APU","KO","CMP","DUK","EMR","EPD","FAST","GE","GIS","GPC","JNJ","LAMR","MMP","PAYX","PFE","PM","PG","O","SO","SEP","UPS","VTR","VZ","WFC","HCN")
 tickers <- new.env()
-getSymbols(Symbols = symbolList, env=tickers)
+getSymbols(Symbols = currentHoldings, env=tickers)
 
 
 chartStocks <- function(x) {
